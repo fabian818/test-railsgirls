@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @idea.name %>
+</p>
+
+<%= test %>
+<p>
+  <strong>Description:</strong>
+  <%= @idea.description %>
+</p>
+
+<p  data-toggle="modal" data-target="#exampleModal">
+  <strong>Picture:</strong>
+  <%= image_tag(@idea.picture_url, width: 200) if @idea.picture.present? %>
+</p>
+
+<%= link_to 'Edit', edit_idea_path(@idea) %> |
+<%= link_to 'Back', ideas_path %>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= image_tag(@idea.picture_url, width: 750) if @idea.picture.present? %>
+      </div>
+    </div>
+  </div>
+</div>
